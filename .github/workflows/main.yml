@@ -35,5 +35,5 @@ jobs:
         npm --version
         npm install
         ls -a
-        npm run build
+        process.env.CI=false npm run build
         ls -a
