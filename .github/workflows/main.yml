@@ -32,9 +32,7 @@ jobs:
 
     - name: Meus testes
       run: |
-        ls -la
-        pwd
-        whoami
-        node -v
-        npm --version
-        echo Hello world!
+        npm install
+        ls -a
+        npm run build
+        ls -a
