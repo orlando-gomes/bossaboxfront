@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="80" viewBox="-8 -8 68 65">
+  <defs>
+    <style>.a{fill:none;stroke:#365df0;stroke-width:10px;}</style>
+  </defs>
+  <g transform="translate(-268.972 -106)">
+    <path class="a" d="M.1,60h52a26.016,26.016,0,0,0-52,0Z" transform="translate(269.901 107)"/>
+    <ellipse class="a" cx="13.7" cy="13.9" rx="13.7" ry="13.9" transform="translate(282.301 107)"/>
+  </g>
+</svg>
