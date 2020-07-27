@@ -29,10 +29,12 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        
+
     - name: Meus testes
       run: |
         ls -la
         pwd
         whoami
+        node -v
         npm --version
+        echo Hello world!
