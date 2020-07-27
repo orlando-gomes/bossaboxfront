@@ -1,4 +1,4 @@
-Integrado redux/saga
+Integrado redux/sagas
 Criar a autenticacao
 
 para deploy, trocar baseUrl do axios
