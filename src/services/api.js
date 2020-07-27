@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL:
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
-      : 'http://134.122.124.121:3000',
+      : 'http://165.227.196.175:3000',
 });
 
 export function setHeaderAuthorization() {
