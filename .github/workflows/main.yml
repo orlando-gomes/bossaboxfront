@@ -32,6 +32,7 @@ jobs:
 
     - name: Meus testes
       run: |
+        npm --version
         npm install
         ls -a
         npm run build
