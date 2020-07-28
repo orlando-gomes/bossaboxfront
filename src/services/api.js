@@ -6,7 +6,7 @@ const api = axios.create({
       ? 'http://localhost:3000'
       : 'http://165.227.196.175:3000',
 });
-
+console.log(process.env.NODE_ENV);
 export function setHeaderAuthorization() {
   if (!api.defaults.headers.Authorization) {
     const localPersistence = JSON.parse(
