@@ -1,6 +1,6 @@
 {
   "name": "bossaboxfront",
-  "homepage": "http://localhost/buid",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
