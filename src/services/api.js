@@ -4,9 +4,9 @@ const api = axios.create({
   baseURL:
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
-      : 'http://165.227.196.175:3000',
+      : 'https://165.227.196.175:3000',
 });
-console.log(process.env.NODE_ENV);
+
 export function setHeaderAuthorization() {
   if (!api.defaults.headers.Authorization) {
     const localPersistence = JSON.parse(

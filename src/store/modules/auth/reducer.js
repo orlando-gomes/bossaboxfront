@@ -37,7 +37,6 @@ export default function auth(state = INITIAL_STATE, action) {
         draft.loading = false;
         draft.loginFailure = true;
         draft.loginError = action.payload.loginError;
-        console.tron.log(draft.loginError);
         break;
 
       case '@auth/SIGN_OUT':
