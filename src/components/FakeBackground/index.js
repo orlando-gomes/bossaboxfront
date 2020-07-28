@@ -55,8 +55,8 @@ function FakeBackground() {
         </Controls>
 
         <ListTool>
-          {tools.map(() => (
-            <CardTool>
+          {tools.map((tool) => (
+            <CardTool key={tool}>
               <TitleAndButton>
                 <ToolTitle>Notion</ToolTitle>
                 <ButtonRemove>

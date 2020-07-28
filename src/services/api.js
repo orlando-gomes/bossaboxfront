@@ -1,10 +1,16 @@
 import axios from 'axios';
 
+/*
 const api = axios.create({
   baseURL:
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
-      : 'https://165.227.196.175:3000',
+      : 'http://165.227.196.175/bossaboxback',
+});
+*/
+
+const api = axios.create({
+  baseURL: 'http://165.227.196.175/bossaboxback',
 });
 
 export function setHeaderAuthorization() {
