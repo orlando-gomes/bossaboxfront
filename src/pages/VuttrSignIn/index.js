@@ -44,6 +44,7 @@ function VuttrSignIn() {
 
   useEffect(() => {
     dispatch(closeBanner());
+    // eslint-disable-next-line
   }, []);
 
   function handleEmailChanging(e) {

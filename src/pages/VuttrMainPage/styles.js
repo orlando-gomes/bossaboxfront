@@ -27,16 +27,42 @@ export const Container = styled.div`
   border: 1px #000;
   background-image: linear-gradient(#e4f9ff, rgba(178, 164, 223, 0.5));
   box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 900px) {
+    max-width: 768px;
+    width: auto;
+    margin: 32px 50px 0;
+  }
+
+  @media (max-width: 660px) {
+    border-radius: 40px;
+  }
 `;
 
 export const AppName = styled.div`
   font-size: 58px;
   font-weight: bold;
+
+  @media (max-width: 900px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 660px) {
+    font-size: 26px;
+  }
 `;
 
 export const SubName = styled.div`
   font-size: 30px;
   font-weight: bold;
+
+  @media (max-width: 900px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 660px) {
+    font-size: 24px;
+  }
 `;
 
 export const Controls = styled.div`
@@ -44,6 +70,10 @@ export const Controls = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 8px;
+
+  @media (max-width: 660px) {
+    flex-direction: column;
+  }
 `;
 
 export const SelectAndCheckbox = styled.div`
@@ -52,6 +82,14 @@ export const SelectAndCheckbox = styled.div`
 
   input {
     margin: 0 8px 0 32px;
+  }
+
+  @media (max-width: 660px) {
+    width: 100%;
+
+    input {
+      margin: 0 8px 0 16px;
+    }
   }
 `;
 
@@ -70,6 +108,12 @@ export const ButtonAdd = styled.button`
   box-shadow: 4px 6px 7px rgba(0, 0, 0, 0.3);
   transition: background 0.2s;
 
+  @media (max-width: 660px) {
+    margin: 10px 0;
+    width: 100%;
+    justify-content: center;
+  }
+
   &:hover {
     background: #2f55cc;
   }
@@ -87,6 +131,10 @@ export const ButtonAdd = styled.button`
 export const ButtonAddText = styled.div`
   font-size: 20px;
   color: #fff;
+
+  @media (max-width: 660px) {
+    margin-left: 10px;
+  }
 `;
 
 export const ListTool = styled.ul`
@@ -142,6 +190,7 @@ export const ToolDescription = styled.div`
 
 export const TagList = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Tag = styled.div`

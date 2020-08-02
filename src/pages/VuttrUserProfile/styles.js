@@ -19,13 +19,19 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 570px;
+  max-width: 570px;
+  width: 100%;
+  margin: 0 50px;
   padding: 48px 80px;
   background: #fff;
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   margin-top: 48px;
+
+  @media (max-width: 600px) {
+    padding: 48px 30px;
+  }
 
   .avatar {
     width: 75px;

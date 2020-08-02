@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { MdMoreVert } from 'react-icons/md';
 
 import {
   Container,
@@ -27,7 +28,6 @@ function Header() {
   const history = useHistory();
   const pathName = history.location.pathname;
   const { userProfile } = useSelector((state) => state.user);
-  const avatarName = useSelector((state) => state.user.userProfile.avatar_name);
   const [avatar, setAvatar] = useState(unknown);
 
   function handleLocation(path) {
@@ -59,16 +59,28 @@ function Header() {
         setAvatar(unknown);
         break;
     }
-  }, [avatarName]);
+  }, [userProfile]);
+
+  function showOrHideMenu() {
+    const menu = document.querySelector('.menu');
+    menu.classList.toggle('open');
+  }
 
   return (
     <Container>
       <LogoAndName>
-        <img src={logo} alt="Desafio Bossabox" />
+        <Link to="/">
+          <img src={logo} alt="Desafio Bossabox" />
+        </Link>
+
         <Link to="/">Desafio Full Stack</Link>
       </LogoAndName>
+
       <NavbarProfile>
-        <NavBar>
+        <button className="navbarhidden" type="button" onClick={showOrHideMenu}>
+          <MdMoreVert color="#8F8A9B" size={28} />
+        </button>
+        <NavBar className="menu">
           <Linkbox selected={pathName === '/backend'}>
             <button
               type="button"
@@ -135,5 +147,9 @@ export default Header;
 Header.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
+};
+
+Header.defaultProps = {
+  location: null,
 };

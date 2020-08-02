@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 import exclusion from '~/assets/Exclusion.svg';
 import success from '~/assets/Success.svg';
@@ -23,7 +24,7 @@ function CriticalBanner({ isVisible, type, message, onDismissing }) {
       default:
         break;
     }
-  }, [isVisible]);
+  }, [isVisible, type]);
 
   return (
     <Container isVisible={isVisible} type={type}>
@@ -40,3 +41,10 @@ function CriticalBanner({ isVisible, type, message, onDismissing }) {
 }
 
 export default CriticalBanner;
+
+CriticalBanner.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+  type: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  onDismissing: PropTypes.func.isRequired,
+};

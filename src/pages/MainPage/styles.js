@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import laptop from '~/assets/Laptop.png';
-import cardBackend from '~/assets/Card-backend.png';
 
 export const Container = styled.div``;
 
@@ -11,10 +10,31 @@ export const Greetings = styled.div`
   height: 395px;
   color: #fff;
   padding: 178px 50px 0 132px;
+
+  @media (max-width: 1140px) {
+    height: 300px;
+    padding: 120px 20px 0 132px;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 760px) {
+    padding: 120px 20px 0 50px;
+  }
 `;
 
 export const DecisionArea = styled.div`
   padding: 90px 135px 0;
+
+  @media (max-width: 1230px) {
+    padding: 50px 80px 0;
+  }
+
+  @media (max-width: 1230px) {
+    text-align: center;
+  }
 `;
 
 export const DecisionCards = styled.div`
@@ -24,15 +44,16 @@ export const DecisionCards = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  a {
-    /*
-    background: url(${cardBackend});
-    width: 299px;
-    height: 193px;
-    color: #fcfcfd;
-    text-align: center;
-    line-height: 350px;
-     */
+  @media (max-width: 1230px) {
+    flex-direction: column;
+
+    div + div {
+      margin-top: 20px;
+    }
+
+    div:last-child {
+      margin-bottom: 20px;
+    }
   }
 `;
 

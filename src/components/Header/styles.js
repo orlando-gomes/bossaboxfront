@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100%;
   height: 100px;
   display: flex;
   flex-direction: row;
@@ -13,11 +14,26 @@ export const LogoAndName = styled.div`
   align-items: center;
   margin-left: 135px;
 
-  a {
+  a + a {
     color: #170c3a;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 2.6rem;
     margin-left: 68px;
+  }
+
+  @media (max-width: 760px) {
+    margin-left: 50px;
+
+    a + a {
+      font-size: 2rem;
+      margin-left: 20px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    a + a {
+      display: none;
+    }
   }
 `;
 
@@ -26,6 +42,29 @@ export const NavbarProfile = styled.div`
   flex-direction: row;
   align-items: center;
   margin-right: 135px;
+
+  .navbarhidden {
+    background: transparent;
+    display: none;
+    border: none;
+    margin-left: 32px;
+  }
+
+  @media (max-width: 1440px) {
+    margin-right: 80px;
+  }
+
+  @media (max-width: 1140px) {
+    flex-direction: row-reverse;
+
+    .navbarhidden {
+      display: block;
+    }
+  }
+
+  @media (max-width: 760px) {
+    margin-right: 50px;
+  }
 `;
 
 export const NavBar = styled.div`
@@ -36,8 +75,37 @@ export const NavBar = styled.div`
   box-sizing: content-box;
   height: 98px;
 
+  &.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ebeaed;
+    border-radius: 5px;
+    box-shadow: 0px 20px 25px rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    position: absolute;
+    top: 70px;
+    right: -60px;
+    width: 140px;
+    height: auto;
+    z-index: 15;
+
+    div {
+      margin-left: 0;
+    }
+  }
+
   div + div {
     margin-left: 28px;
+  }
+
+  @media (max-width: 1440px) {
+    margin-right: 80px;
+  }
+
+  @media (max-width: 1140px) {
+    display: none;
   }
 `;
 
@@ -83,6 +151,39 @@ export const Linkbox = styled.div`
 
     &:hover {
       color: #365df0;
+    }
+  }
+
+  @media (max-width: 1140px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    height: 50px;
+    width: 120px;
+
+    &::before {
+      content: '';
+      display: none;
+    }
+
+    &::after {
+      content: '';
+      display: none;
+    }
+
+    button {
+      margin: 0;
+      padding: 0;
+      height: 45px;
+      display: block;
+      line-height: 45px;
+      border-radius: 6px;
+      width: 100%;
+
+      &:hover {
+        background: #e1e7fd;
+      }
     }
   }
 `;

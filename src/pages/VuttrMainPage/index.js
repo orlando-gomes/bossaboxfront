@@ -78,7 +78,7 @@ function VuttrMainPage() {
     if (afterLogin) {
       animate();
     }
-  }, []);
+  });
 
   useEffect(() => {
     async function loadTools() {
@@ -132,7 +132,7 @@ function VuttrMainPage() {
     }
 
     loadTools();
-  }, [currentPage, mustUpgradeDataToShow]);
+  }, [currentPage, mustUpgradeDataToShow, inTagIsChecked, selectedOption]);
 
   function callModalAdd() {
     setModalAddVisible(true);
@@ -143,8 +143,8 @@ function VuttrMainPage() {
   }
 
   function callModalRemove(toolId) {
-    const toolToDelete = toolsToShow.find((tool) => tool.id === toolId);
-    setToolToDelete(toolToDelete);
+    const deletingTool = toolsToShow.find((tool) => tool.id === toolId);
+    setToolToDelete(deletingTool);
     setModalRemoveVisible(true);
   }
 
@@ -287,7 +287,7 @@ function VuttrMainPage() {
                 value="bytags"
                 onClick={handleClickCheckbox}
               />
-              <span htmlFor="checkbox">search in tag only</span>
+              <span htmlFor="checkbox">search in tag</span>
             </SelectAndCheckbox>
             <ButtonAdd type="button" onClick={callModalAdd}>
               <img src={iconAddWhite} alt="add" />
@@ -396,16 +396,3 @@ function VuttrMainPage() {
 }
 
 export default VuttrMainPage;
-
-/*
-      const data = [
-        {
-          id: 1,
-          title: 'Hotel',
-          link: 'https://github.com/hotel',
-          description: 'A tool created only for testing de API',
-          tags: ['php', 'ruby'],
-        },
-      ];
-      */
-// const data = [];

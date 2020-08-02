@@ -124,7 +124,7 @@ function VuttrUserProfile() {
     setAvatarName(userProfile.avatar_name);
     setName(userProfile.name);
     setEmail(userProfile.email);
-  }, []);
+  }, [userProfile]);
 
   function handleChoosingAvatar(avatName) {
     setAvatarName(avatName);

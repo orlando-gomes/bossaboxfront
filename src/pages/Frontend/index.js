@@ -16,7 +16,14 @@ function Frontend() {
           </p>
           <ul>
             <li>
-              Github da aplicação <a href="#">nesse link.</a>
+              Github da aplicação{' '}
+              <a
+                href="https://github.com/orlando-gomes/bossaboxfront"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                nesse link.
+              </a>
             </li>
             <li>Deploy em ambiente real.</li>
             <li>

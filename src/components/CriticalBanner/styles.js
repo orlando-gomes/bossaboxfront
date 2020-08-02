@@ -28,6 +28,16 @@ export const Container = styled.div`
   z-index: 10;
   top: 300px;
   left: calc(50% - 100px);
+
+  @media (max-width: 900px) {
+    left: calc(50% - 245px);
+  }
+
+  @media (max-width: 590px) {
+    width: 400px;
+    left: calc(50% - 200px);
+    padding: 20px;
+  }
 `;
 
 export const BanTitle = styled.div`
@@ -35,6 +45,10 @@ export const BanTitle = styled.div`
   font-size: 26px;
   display: flex;
   align-items: center;
+
+  @media (max-width: 590px) {
+    font-size: 24px;
+  }
 
   img {
     width: 20px;

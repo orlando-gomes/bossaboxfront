@@ -29,13 +29,17 @@ export default createGlobalStyle`
     background: #ffffff;
   }
 
+  html {
+    font-size: 62.5%;
+  }
+
   body {
     -webkit-font-smoothing: antialiased;
   }
 
   body, input, button, textarea {
     /*font: 20px 'Source Sans Pro', sans-serif; */
-    font: 20px 'Source Sans Pro', sans-serif;
+    font: 2.0rem 'Source Sans Pro', sans-serif;
     color: #170C3A;
   }
 

@@ -23,12 +23,18 @@ export const ModalMask = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 570px;
+  max-width: 570px;
+  width: 100%;
+  margin: 0 50px;
   padding: 48px 80px;
   border-radius: 4px;
   border: 1px #000;
   background: #ffffff;
   box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 600px) {
+    padding: 48px 30px;
+  }
 `;
 
 export const Form = styled.form`
