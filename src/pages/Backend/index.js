@@ -39,7 +39,7 @@ function Backend() {
               Documentação em Swagger inclusa na própria API. Podemos acessar a
               documentação da API hospedada{' '}
               <a
-                href="http://165.227.196.175/bossaboxback/api-docs/"
+                href="https://www.orlstechbacks.com/bossaboxback/api-docs/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
