@@ -28,7 +28,14 @@ function Frontend() {
             <li>Deploy em ambiente real.</li>
             <li>
               Utilizamos os wireframes fornecidos e fizemos protótipos de alta
-              qualidade, como podemos ver <a href="#">nesse link.</a>
+              qualidade, como podemos ver{' '}
+              <a
+                href="https://www.figma.com/file/pcOBRVIzbkgRFI4vUtxMga/Bossabox?node-id=0%3A1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                nesse link.
+              </a>
             </li>
             <li>
               Video contendo informações sobre as ferramentas usadas, sobre os

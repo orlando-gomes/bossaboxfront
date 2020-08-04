@@ -14,6 +14,7 @@ export const Container = styled.div`
     margin: 270px 136px 0 0;
     width: 370px;
     height: 210px;
+    color: #365df0;
   }
 
   img {

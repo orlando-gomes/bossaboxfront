@@ -28,7 +28,7 @@ function Backend() {
               A API foi &quot;conteinerizada&quot;. Podemos baixar o container
               no Docker Hub{' '}
               <a
-                href="https://hub.docker.com/repository/docker/orlandosjm/bossaboxbacklinux"
+                href="https://hub.docker.com/r/orlandosjm/bossaboxbacklinux"
                 target="_blank"
                 rel="noopener noreferrer"
               >
