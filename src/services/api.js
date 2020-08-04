@@ -1,10 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL:
-    process.env.NODE_ENV === 'development'
-      ? 'http://localhost:3000'
-      : 'http://165.227.196.175/bossaboxback',
+  baseURL: 'https://orlstechbacks.com/bossaboxback',
 });
 
 export function setHeaderAuthorization() {
@@ -19,3 +16,21 @@ export function setHeaderAuthorization() {
 }
 
 export default api;
+
+/*
+const api = axios.create({
+  baseURL:
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'http://165.227.196.175/bossaboxback',
+});
+*/
+
+/*
+const api = axios.create({
+  baseURL:
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'https://orlstechbacks.com/bossaboxback',
+});
+*/
