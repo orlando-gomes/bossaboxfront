@@ -48,7 +48,6 @@ function Frontend() {
           <img src={Video} alt="Video backend" />
         </a>
       </Container>
-      <Header />
     </>
   );
 }
