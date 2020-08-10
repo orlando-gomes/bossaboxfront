@@ -1,4 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 export const UsefulArea = styled.div`
   width: 100%;
@@ -27,6 +36,18 @@ export const Container = styled.div`
   border: 1px #000;
   background-image: linear-gradient(#e4f9ff, rgba(178, 164, 223, 0.5));
   box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.5);
+
+  .wrapSpinner {
+    display: flex;
+    align-items: center;
+    padding: 120px 0;
+
+    img {
+      width: 94px;
+      margin: 50px auto;
+      animation: ${rotate} 0.7s linear infinite;
+    }
+  }
 
   @media (max-width: 900px) {
     max-width: 768px;
@@ -207,10 +228,6 @@ export const Pagination = styled.div`
   justify-content: center;
   margin-top: 32px;
   font-size: 18px;
-
-  img {
-    width: 10px;
-  }
 `;
 
 export const PreviousNext = styled.button`
@@ -218,6 +235,11 @@ export const PreviousNext = styled.button`
   margin: 0 8px;
   background: transparent;
   border: none;
+
+  img {
+    width: 10px;
+    margin: 0 8px;
+  }
 `;
 
 export const Page = styled.button`

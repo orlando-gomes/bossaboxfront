@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Select from 'react-select';
 
-import { alreadyAnimated } from '~/store/modules/auth/actions';
+import { alreadyAnimated, signOut } from '~/store/modules/auth/actions';
 
 import ModalAddTool from '~/components/ModalAddTool';
 import ModalRemoveTool from '~/components/ModalRemoveTool';
@@ -42,6 +42,7 @@ import ChevronLeft from '~/assets/Chevron-Left.svg';
 import ChevronLeftDisable from '~/assets/Chevron-Left-disable.svg';
 import ChevronRight from '~/assets/Chevron-Right.svg';
 import ChevronRightDisable from '~/assets/Chevron-Right-disable.svg';
+import spinnerBluePage from '~/assets/spinner-blue-page.png';
 
 function VuttrMainPage() {
   const [toolsToShow, setToolsToShow] = useState([]);
@@ -64,6 +65,12 @@ function VuttrMainPage() {
 
   const [serverIsDown, setServerIsDown] = useState(false);
 
+  const [loading, setLoading] = useState(true);
+
+  // A simple cache for tools
+  const [shouldGetToolsFromState, setShouldGetToolsFromState] = useState(false);
+  const [dataFetched, setDataFetched] = useState(null);
+
   function animate() {
     setTimeout(() => {
       setBecomingTransparent(true);
@@ -85,17 +92,25 @@ function VuttrMainPage() {
       setHeaderAuthorization();
 
       let response;
+      let data;
 
       try {
-        if (inTagIsChecked) {
-          response = await api.get('/tools', {
-            params: { tag: selectedOption },
-          });
+        if (shouldGetToolsFromState) {
+          // shouldGetToolsFromState
+          data = dataFetched;
         } else {
-          response = await api.get('/tools');
-        }
+          setLoading(true);
+          if (inTagIsChecked) {
+            response = await api.get('/tools', {
+              params: { tag: selectedOption },
+            });
+          } else {
+            response = await api.get('/tools');
+          }
 
-        const { data } = response;
+          data = response.data;
+          setDataFetched(data);
+        }
 
         let lastPag;
         if (data.length === 0) {
@@ -126,8 +141,21 @@ function VuttrMainPage() {
 
         const op = tags.map((tag) => ({ value: tag.title, label: tag.title }));
         setOptionsForSelectBox(op);
+        setLoading(false);
       } catch (err) {
-        setServerIsDown(true);
+        setLoading(false);
+
+        switch (err.message) {
+          case 'Request failed with status code 401':
+            dispatch(signOut());
+            break;
+          case 'Request failed with status code 500':
+            setServerIsDown(true);
+            break;
+
+          default:
+            break;
+        }
       }
     }
 
@@ -164,7 +192,10 @@ function VuttrMainPage() {
     setSelectedOption(value);
 
     if (inTagIsChecked) {
+      setShouldGetToolsFromState(false);
       refreshToolList();
+    } else {
+      setShouldGetToolsFromState(true);
     }
   }
 
@@ -176,19 +207,25 @@ function VuttrMainPage() {
     }
 
     if (selectedOption) {
+      setShouldGetToolsFromState(false);
       refreshToolList();
+    } else {
+      setShouldGetToolsFromState(true);
     }
   }
 
   function handlePrevious() {
+    setShouldGetToolsFromState(true);
     setCurrentPage(currentPage - 1);
   }
 
   function handleNext() {
+    setShouldGetToolsFromState(true);
     setCurrentPage(currentPage + 1);
   }
 
   function toPage(page) {
+    setShouldGetToolsFromState(true);
     setCurrentPage(page);
   }
 
@@ -245,11 +282,13 @@ function VuttrMainPage() {
 
   function handleIfToolWasAdded() {
     dismissModalAdd();
+    setShouldGetToolsFromState(false);
     refreshToolList();
   }
 
   function handleIfToolWasDeleted() {
     dismissModalRemove();
+    setShouldGetToolsFromState(false);
     refreshToolList();
   }
 
@@ -268,7 +307,6 @@ function VuttrMainPage() {
         <Container>
           <AppName>VUTTR</AppName>
           <SubName>Very Useful Tools to Remember</SubName>
-
           <Controls>
             <SelectAndCheckbox>
               <Select
@@ -294,57 +332,61 @@ function VuttrMainPage() {
               <ButtonAddText>Add</ButtonAddText>
             </ButtonAdd>
           </Controls>
-
-          <ListTool>
-            {toolsToShow.length > 0 ? (
-              toolsToShow.map((tool) => (
-                <CardTool key={tool.id}>
-                  <TitleAndButton>
-                    <ToolTitle href={tool.link} target="_blank">
-                      {tool.title}
-                    </ToolTitle>
-                    <ButtonRemove
-                      key={tool.id}
-                      onClick={() => {
-                        callModalRemove(tool.id);
-                      }}
-                    >
-                      <img src={iconClose} alt="remove" />
-                      <ButtonRemoveText>Remove</ButtonRemoveText>
-                    </ButtonRemove>
-                  </TitleAndButton>
-
-                  <ToolDescription>{tool.description}</ToolDescription>
-                  <TagList>
-                    {tool.tags.map((tag) => (
-                      <Tag
-                        key={tag}
-                        highlighted={
-                          selectedOption &&
-                          inTagIsChecked &&
-                          selectedOption === tag
-                        }
+          {loading ? (
+            <div className="wrapSpinner">
+              <img src={spinnerBluePage} alt="loading" />
+            </div>
+          ) : (
+            <ListTool>
+              {toolsToShow.length > 0 ? (
+                toolsToShow.map((tool) => (
+                  <CardTool key={tool.id}>
+                    <TitleAndButton>
+                      <ToolTitle href={tool.link} target="_blank">
+                        {tool.title}
+                      </ToolTitle>
+                      <ButtonRemove
+                        key={tool.id}
+                        onClick={() => {
+                          callModalRemove(tool.id);
+                        }}
                       >
-                        #{tag}
-                      </Tag>
-                    ))}
-                  </TagList>
-                </CardTool>
-              ))
-            ) : (
-              <CardTool>
-                <ToolTitle>No tool was registered yet</ToolTitle>
-                <ToolDescription>Be the first to add a tool</ToolDescription>
-              </CardTool>
-            )}
-          </ListTool>
+                        <img src={iconClose} alt="remove" />
+                        <ButtonRemoveText>Remove</ButtonRemoveText>
+                      </ButtonRemove>
+                    </TitleAndButton>
 
+                    <ToolDescription>{tool.description}</ToolDescription>
+                    <TagList>
+                      {tool.tags.map((tag) => (
+                        <Tag
+                          key={tag}
+                          highlighted={
+                            selectedOption &&
+                            inTagIsChecked &&
+                            selectedOption === tag
+                          }
+                        >
+                          #{tag}
+                        </Tag>
+                      ))}
+                    </TagList>
+                  </CardTool>
+                ))
+              ) : (
+                <CardTool>
+                  <ToolTitle>No tool was registered yet</ToolTitle>
+                  <ToolDescription>Be the first to add a tool</ToolDescription>
+                </CardTool>
+              )}
+            </ListTool>
+          )}
           <Pagination>
-            <img
-              src={currentPage === 1 ? ChevronLeftDisable : ChevronLeft}
-              alt="Previous"
-            />
             <PreviousNext onClick={handlePrevious} disabled={currentPage === 1}>
+              <img
+                src={currentPage === 1 ? ChevronLeftDisable : ChevronLeft}
+                alt="Previous"
+              />
               Previous
             </PreviousNext>
 
@@ -355,13 +397,13 @@ function VuttrMainPage() {
               disabled={currentPage === lastPage}
             >
               Next
+              <img
+                src={
+                  currentPage === lastPage ? ChevronRightDisable : ChevronRight
+                }
+                alt="Next"
+              />
             </PreviousNext>
-            <img
-              src={
-                currentPage === lastPage ? ChevronRightDisable : ChevronRight
-              }
-              alt="Next"
-            />
           </Pagination>
         </Container>
       </UsefulArea>
