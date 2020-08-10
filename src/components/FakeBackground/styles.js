@@ -20,7 +20,7 @@ export const Container = styled.div`
   border-radius: 60px;
   border: 1px #000;
   background-image: linear-gradient(#e4f9ff, rgba(178, 164, 223, 0.5));
-  box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.5);
+  /*box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.5);*/
 
   @media (max-width: 900px) {
     max-width: 768px;

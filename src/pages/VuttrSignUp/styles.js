@@ -10,7 +10,7 @@ const rotate = keyframes`
 `;
 
 export const ModalMask = styled.div`
-  background: rgba(28, 04, 04, 0.9);
+  background: rgba(28, 04, 04, 0.93);
   width: 100%;
   height: 100%;
   z-index: 1;
