@@ -220,7 +220,7 @@ function VuttrUserProfile() {
         setPasswordValidation({ isValid: false, errorMessage: err.errors });
       });
 
-    if (newPassword) {
+    if (newPassword !== '' || confirmPassword !== '') {
       await schemaNewPassword
         .validate({ newPassword })
         .then(() => {
@@ -232,6 +232,7 @@ function VuttrUserProfile() {
             isValid: false,
             errorMessage: err.errors,
           });
+          newPasswordValid = false;
         });
 
       await schemaConfirmPassword
@@ -245,7 +246,14 @@ function VuttrUserProfile() {
             isValid: false,
             errorMessage: err.errors,
           });
+          confirmPasswordValid = false;
         });
+    } else {
+      // Only for cleaning serial mistakes
+      setConfirmPasswordValidation({ isValid: true, errorMessage: '' });
+      confirmPasswordValid = true;
+      setNewPasswordValidation({ isValid: true, errorMessage: '' });
+      newPasswordValid = true;
     }
 
     return (
