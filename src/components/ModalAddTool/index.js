@@ -174,7 +174,6 @@ function ModalAddTool({ visible, onVisibleChange, onAddTool, onServerError }) {
 
     if (await fieldsAreValid(tagsArray)) {
       setHeaderAuthorization();
-
       try {
         await api.post('/tools', {
           title: tName,
@@ -203,9 +202,10 @@ function ModalAddTool({ visible, onVisibleChange, onAddTool, onServerError }) {
         setLoading(false);
       }
     }
+
+    setLoading(false);
   }
 
-  // <ModalMask visible={visible}>
   return (
     <ModalMask visible={visible}>
       <Container>

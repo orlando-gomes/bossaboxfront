@@ -24,7 +24,9 @@ function* signIn({ payload }) {
     let message = '';
 
     switch (err.message) {
+      case 'Request failed with status code 400':
       case 'Request failed with status code 401':
+      case 'Request failed with status code 404':
         dataIsWrong = true;
         serverIsDown = false;
         message = 'Authentication failure! Please, check your data.';
