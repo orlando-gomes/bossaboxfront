@@ -31,6 +31,11 @@ export const Container = styled.div`
   box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.5);
   margin-top: 100px;
   margin-bottom: auto;
+
+  @media (max-width: 760px) {
+    width: 300px;
+    padding: 32px 32px;
+  }
 `;
 
 export const Form = styled.form`
@@ -80,8 +85,12 @@ export const Input = styled.input`
 `;
 
 export const Title = styled.div`
-  font-size: 58px;
+  font-size: 5.8rem;
   font-weight: bold;
+
+  @media (max-width: 760px) {
+    font-size: 3.2rem;
+  }
 `;
 
 export const ButtonSignIn = styled.button`
@@ -117,21 +126,29 @@ export const ButtonSignIn = styled.button`
   }
 `;
 
-export const SignupText = styled.div`
-  font-size: 16px;
+export const SigninText = styled.div`
+  font-size: 1.6rem;
   margin-top: 32px;
 
   a {
     margin-left: 6px;
     color: #365df8;
   }
+
+  @media (max-width: 760px) {
+    font-size: 1.4rem;
+  }
 `;
 
 export const Goback = styled.div`
-  font-size: 16px;
+  font-size: 1.6rem;
 
   a {
     margin-left: 6px;
     color: #365df8;
+  }
+
+  @media (max-width: 760px) {
+    font-size: 1.4rem;
   }
 `;

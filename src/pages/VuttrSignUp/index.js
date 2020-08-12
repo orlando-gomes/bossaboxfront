@@ -12,7 +12,7 @@ import {
   Input,
   Title,
   ButtonSignUp,
-  SigninText,
+  SignupText,
   Goback,
 } from './styles';
 
@@ -181,10 +181,10 @@ function VuttrSignUp() {
                 'Sign Up'
               )}
             </ButtonSignUp>
-            <SigninText>
+            <SignupText>
               Already have an account?
               <Link to="/vuttrsignin">Sign In</Link>
-            </SigninText>
+            </SignupText>
             <Goback>
               Or<Link to="/">go back</Link> to mainpage
             </Goback>

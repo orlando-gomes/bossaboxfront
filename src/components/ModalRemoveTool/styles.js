@@ -20,6 +20,10 @@ export const Container = styled.div`
   border: 1px #000;
   background: #ffffff;
   box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 480px) {
+    width: 90%;
+  }
 `;
 
 export const Form = styled.form`
@@ -74,6 +78,10 @@ export const ButtonsDiv = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 380px) {
+    flex-direction: column;
+  }
 `;
 
 export const ButtonCancel = styled.button`
@@ -97,6 +105,11 @@ export const ButtonCancel = styled.button`
     background: #244aa8;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
   }
+
+  @media (max-width: 380px) {
+    margin: 32px 0 0;
+    width: 100%;
+  }
 `;
 
 export const ButtonRemove = styled.button`
@@ -119,5 +132,9 @@ export const ButtonRemove = styled.button`
   &:active {
     background: #a53f3f;
     box-shadow: 2px 4px 5px rgba(100, 0, 0, 0.4);
+  }
+
+  @media (max-width: 380px) {
+    width: 100%;
   }
 `;

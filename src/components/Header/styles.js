@@ -31,6 +31,8 @@ export const LogoAndName = styled.div`
   }
 
   @media (max-width: 550px) {
+    margin-left: 30px;
+
     a + a {
       display: none;
     }
@@ -64,6 +66,14 @@ export const NavbarProfile = styled.div`
 
   @media (max-width: 760px) {
     margin-right: 50px;
+  }
+
+  @media (max-width: 550px) {
+    margin-right: 30px;
+
+    .navbarhidden {
+      margin-left: 10px;
+    }
   }
 `;
 

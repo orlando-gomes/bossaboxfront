@@ -23,6 +23,11 @@ export const Greetings = styled.div`
   @media (max-width: 760px) {
     padding: 120px 20px 0 50px;
   }
+
+  @media (max-width: 550px) {
+    height: 260px;
+    padding: 70px 20px 0 50px;
+  }
 `;
 
 export const DecisionArea = styled.div`

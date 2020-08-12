@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-self: center;
-  padding: 36px;
+  padding: 36px 30px;
 
   @media (max-width: 1060px) {
     flex-direction: column;
@@ -23,7 +23,8 @@ export const LeftDiv = styled.div`
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100%;
-  width: 370px;
+  width: 100%;
+  max-width: 370px;
   height: 650px;
   border-radius: 5px;
   box-shadow: 4px 6px 20px #000;
@@ -31,6 +32,22 @@ export const LeftDiv = styled.div`
 
   img {
     margin-top: 230px;
+  }
+
+  @media (max-width: 400px) {
+    height: 600px;
+
+    img {
+      margin-top: 180px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    height: 570px;
+
+    img {
+      margin-top: 150px;
+    }
   }
 `;
 
@@ -74,7 +91,8 @@ export const RightDiv = styled.div`
   }
 
   @media (max-width: 630px) {
-    width: 370px;
+    width: 100%;
+    max-width: 370px;
     height: auto;
     padding: 0 10px 10px 26px;
   }
@@ -122,10 +140,6 @@ export const SectionField = styled.div`
   width: 50%;
   padding: 12px 10px;
 
-  @media (max-width: 630px) {
-    width: 100%;
-  }
-
   .simpledata {
     display: flex;
     flex-direction: row;
@@ -148,6 +162,16 @@ export const SectionField = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  @media (max-width: 630px) {
+    width: 100%;
+  }
+
+  @media (max-width: 370px) {
+    .simpledata {
+      font-size: 1.6rem;
+    }
   }
 `;
 

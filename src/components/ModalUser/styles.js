@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin-right: 35px;
   position: relative;
+
+  @media (max-width: 550px) {
+    margin-right: 20px;
+  }
 `;
 
 export const ButtonShow = styled.button`
@@ -22,6 +26,7 @@ export const Modalbox = styled.div`
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 10;
 
   a {
     color: #365df0;

@@ -104,7 +104,7 @@ function About() {
                 <MiniHorizontalSeparator />
 
                 <div className="simpledata">
-                  <span className="greenTitle">Email</span>
+                  <span className="greenTitle email">Email</span>
                   <span>orlandosjm@yahoo.com.br</span>
                 </div>
 
