@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '~/components/Header';
 
 import { Container, Content } from './styles';
-import Video from '~/assets/video.png';
+import backend from '~/assets/Backend.png';
 
 function Backend() {
   return (
@@ -53,8 +53,12 @@ function Backend() {
           </ul>
         </Content>
 
-        <a href="#">
-          <img src={Video} alt="Video backend" />
+        <a
+          href="https://youtu.be/G3dzGMpV5gE"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={backend} alt="Video backend" />
         </a>
       </Container>
     </>
