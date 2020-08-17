@@ -11,7 +11,7 @@ function Backend() {
       <Container>
         <Content>
           <h3>Backend</h3>
-          <p>Fizemos uma API conforme requisitos os listados:</p>
+          <p>Foi feita uma API conforme requisitos os listados:</p>
           <ul>
             <li>
               Github da aplicação{' '}
@@ -25,7 +25,7 @@ function Backend() {
             </li>
             <li>Deploy em ambiente real.</li>
             <li>
-              A API foi &quot;conteinerizada&quot;. Podemos baixar o container
+              A API foi &quot;conteinerizada&quot;. Pode-se baixar o container
               no Docker Hub{' '}
               <a
                 href="https://hub.docker.com/r/orlandosjm/bossaboxbacklinux"
@@ -36,7 +36,7 @@ function Backend() {
               </a>
             </li>
             <li>
-              Documentação em Swagger inclusa na própria API. Podemos acessar a
+              Documentação em Swagger inclusa na própria API. Pode-se acessar a
               documentação da API hospedada{' '}
               <a
                 href="https://www.orlstechbacks.com/bossaboxback/api-docs/"

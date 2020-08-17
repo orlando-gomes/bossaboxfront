@@ -12,7 +12,7 @@ function Frontend() {
         <Content>
           <h3>Frontend</h3>
           <p>
-            Fizemos uma aplicação em ReactJS, conforme requisitos os listados:
+            Foi feita uma aplicação em ReactJS, conforme requisitos os listados:
           </p>
           <ul>
             <li>
@@ -27,8 +27,8 @@ function Frontend() {
             </li>
             <li>Deploy em ambiente real.</li>
             <li>
-              Utilizamos os wireframes fornecidos e fizemos protótipos de alta
-              qualidade, como podemos ver{' '}
+              Foram utilizados os wireframes fornecidos e foram feitos
+              protótipos de alta qualidade, como podemos ver{' '}
               <a
                 href="https://www.figma.com/file/pcOBRVIzbkgRFI4vUtxMga/Bossabox?node-id=0%3A1"
                 target="_blank"
